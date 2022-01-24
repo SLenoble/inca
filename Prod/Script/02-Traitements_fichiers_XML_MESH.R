@@ -35,7 +35,7 @@ run_xml_splitter(dir_input = chemin_input
   liste_fic <- list.files(paste0(chemin_input,"XML_Mesh_Splitted/"))
   nb_fic <- length(liste_fic)
   
-  for (n_fic in 1:1) {
+  for (n_fic in 1:nb_fic) {
 
     ## on identifie le fichier à lire
     nom_fic <- liste_fic[n_fic]  
