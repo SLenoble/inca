@@ -1,0 +1,30 @@
+[1] "Programme: 02-Traitements_fichiers_XML_MESH"
+[1] "Heure lancement: "
+[1] "2022-01-24 17:15:58"
+Error in run_xml_splitter(dir_input = chemin_input, file_input = nom_fic_mesh,  : 
+  impossible de trouver la fonction "run_xml_splitter"
+Error in FUN(X[[i]], ...) : 
+  Prod/Fonctions/15-definition_fonction_traitements_xml_supp.R:126:28: '=' inattendu(e)
+125:       tableau_dt2 <- tableau_dt2 %>% 
+126:         mutate(get(name_id)=
+                                ^
+ [1] "Prod/Fonctions/01-definition_fonction_log.R"                         
+ [2] "Prod/Fonctions/02-definition_fonction_searchAPI.R"                   
+ [3] "Prod/Fonctions/03-definition_fonction_fetchAPI.R"                    
+ [4] "Prod/Fonctions/04-definition_fonction_new_fn_niv_1.R"                
+ [5] "Prod/Fonctions/05-definition_fonction_test_id_fetch.R"               
+ [6] "Prod/Fonctions/06-definition_fonction_traitements_xml.R"             
+ [7] "Prod/Fonctions/07-definition_fonction_check_xml.R"                   
+ [8] "Prod/Fonctions/08-definition_fonction_traitements_xml_mesh.R"        
+ [9] "Prod/Fonctions/09-definition_fonction_full_traitements_xml.R"        
+[10] "Prod/Fonctions/10-definition_fonction_identification_id_a_charger.R" 
+[11] "Prod/Fonctions/11-definition_fonction_test_reprise_necessaire.R"     
+[12] "Prod/Fonctions/12-definition_lancement_PUBMED.R"                     
+[13] "Prod/Fonctions/13-definition_not_in.R"                               
+[14] "Prod/Fonctions/14-definition_identification_id_doublons.R"           
+[15] "Prod/Fonctions/14-definition_identification_id_plus_present.R"       
+[16] "Prod/Fonctions/15-definition_fonction_traitements_xml_supp.R"        
+[17] "Prod/Fonctions/16-definition_fonction_suppression_id_plus_acharger.R"
+[18] "Prod/Fonctions/17-definition_fonction_suppression_en_doublons.R"     
+[19] "Prod/Fonctions/18-definition_fonction_comptage_balise.R"             
+[20] "Prod/Fonctions/19-definition_fonction_split_xml.R"                   

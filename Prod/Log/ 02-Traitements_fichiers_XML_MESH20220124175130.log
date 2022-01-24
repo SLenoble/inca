@@ -1,0 +1,14 @@
+[1] "Programme: 02-Traitements_fichiers_XML_MESH"
+[1] "Heure lancement: "
+[1] "2022-01-24 17:51:30"
+Error in run_xml_splitter(dir_input = chemin_input, file_input = nom_fic_mesh,  : 
+  impossible de trouver la fonction "run_xml_splitter"
+Erreur : '=' inattendu(e) in:
+"      tableau_dt2 <- tableau_dt2 %>% 
+        mutate(!!var_id="
+Error in rbind(tableau_dt_final, tableau_dt2) : 
+  objet 'tableau_dt_final' introuvable
+Erreur : '}' inattendu(e) in "    }"
+Error in paste0(chemin, nom, i_lot, ".RDS") : objet 'chemin' introuvable
+Erreur : '}' inattendu(e) in "  }"
+Erreur : '}' inattendu(e) in "}"

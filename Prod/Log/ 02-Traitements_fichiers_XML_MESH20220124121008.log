@@ -1,0 +1,9 @@
+[1] "Programme: 02-Traitements_fichiers_XML_MESH"
+[1] "Heure lancement: "
+[1] "2022-01-24 12:10:08"
+[1] "Lecture des données"
+[1] "Le fichier n'existe pas dans le répertoire donné en entrée."
+[1] "Génération des paires"
+Error in mapply(FUN = f, ..., SIMPLIFY = FALSE) : 
+  objet 'idx_start_tag_by_block' introuvable
+[1] "Prod/Input/"

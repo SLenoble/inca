@@ -1,0 +1,352 @@
+[1] "Programme: 02-Traitements_fichiers_XML_MESH"
+[1] "Heure lancement: "
+[1] "2022-01-24 14:44:00"
+[1] "Lecture des donnÃ©es"
+[1] "GÃ©nÃ©ration des paires"
+[1] "31 fichiers Ã  gÃ©nÃ©rer"
+[1] "Split des donnÃ©es et Ã©criture dans un .xml spÃ©cifique"
+[1] "Fichier : 1"
+[1] "Fichier : 2"
+[1] "Fichier : 3"
+[1] "Fichier : 4"
+[1] "Fichier : 5"
+[1] "Fichier : 6"
+[1] "Fichier : 7"
+[1] "Fichier : 8"
+[1] "Fichier : 9"
+[1] "Fichier : 10"
+[1] "Fichier : 11"
+[1] "Fichier : 12"
+[1] "Fichier : 13"
+[1] "Fichier : 14"
+[1] "Fichier : 15"
+[1] "Fichier : 16"
+[1] "Fichier : 17"
+[1] "Fichier : 18"
+[1] "Fichier : 19"
+[1] "Fichier : 20"
+[1] "Fichier : 21"
+[1] "Fichier : 22"
+[1] "Fichier : 23"
+[1] "Fichier : 24"
+[1] "Fichier : 25"
+[1] "Fichier : 26"
+[1] "Fichier : 27"
+[1] "Fichier : 28"
+[1] "Fichier : 29"
+[1] "Fichier : 30"
+[1] "Fichier : 31"
+
+
+
+> #-------------------------------------------------------#
+> #                                                       #
+> #    01-00-Definitions_param .... [TRUNCATED] 
+
+> library(XML)
+
+> library(xml2)
+
+> library(data.table)
+
+> library(dplyr)
+
+> library(glue)
+
+> library(stringr)
+
+> ##
+> # GLOBAL PATH ----
+> ##
+> 
+> # chemin LOG ----
+> chemin_log <- "Prod/Log/"
+
+> # chemin fonctions ----
+> chemin_fonctions <- "Prod/Fonctions/"
+
+> # pour chargement des fonctions en memoire
+> file_sources = list.files(pattern="*\\.R", path = chemin_fonctions, full.names = TRUE)
+
+> #  chemin OUTPUT  ----
+> chemin_output <- "Prod/Output/"
+
+> # chemin temps traitement ----
+> chemin_tps_traitment <- paste0(chemin_output, "temps_traitement/")
+
+> # chemin INPUT ----
+> chemin_input <- "Prod/Input/"
+
+> #  chemin scripts ----
+> chemin_script <- "Prod/Script/"
+
+> #-------------------------------------------------------#
+> #                                                       #
+> #                    PUBMED  .... [TRUNCATED] 
+
+> #  03-definition_fonction_fetchAPI ----
+>   # nombre de publications xml par fichier en sortie (le pas)
+> step_by_id = 200# 999
+
+>   # index positions pour les id
+> start_index_id = 1
+
+> stop_index_id = 1000# 114000 ## ne pas mettre de paramètre de nombre max de fichier à récupérer
+
+> #  05-definition_fonction_test_id_fetch ----
+> nom_fichier_suivi_id <- "Suivi_id_PUBMED.csv"
+
+> #  07-definition_foctions_check_xml ----
+> nom_fichier_suivi_nct <- "Suivi_id_PUBMED_NCT.csv"
+
+> ##
+> # BALISES
+> ##
+> 
+> #  noms Balises simples ----
+> 
+> # lot1 <- readRDS("Prod/Output/Lot_1.RDS")
+> # noms_balises_simples <- lot1 %>% group_by( .... [TRUNCATED] 
+
+> ## on définit la liste des balises erronnées
+> liste_balises_erronnees <- c("b","i","sub","sup","u","math","mi","mn","mo","mrow","msub","mspace","mt ..." ... [TRUNCATED] 
+
+> ## on definit le taux de présence pour que la balise soient significatives
+> tx_balise_NS <- 0.001
+
+> #-------------------------------------------------------#
+> #                                                       #
+> #                    MESH    .... [TRUNCATED] 
+
+> # 02-Traitements_fichiers_XML_MESH ----
+>   # nombre de fichier par lot pour export RDS
+> max_mesh <- 10
+
+> # fichiers mesh test ----
+> nom_fic_mesh <- "desc2022.xml"
+
+> # noms balises mesh ----
+> 
+> # lot_mesh <- readRDS("Prod/Output/mesh_rds/mesh_lot_1.RDS")
+> # noms_balises_simples_mesh <- lot_mesh %>% group_by(id .... [TRUNCATED] 
+
+> #-------------------------------------------------------#
+> #                                                       #
+> #                    MESH TR .... [TRUNCATED] 
+
+> # chemin output mesh trees ----
+> chemin_output_trees <- paste0(chemin_output, "mesh_trees/")
+
+> #-------------------------------------------------------#
+> #                                                       #
+> #                    REPRISE .... [TRUNCATED] 
+
+> # chemin output reprise ----
+> chemin_output_reprise <- paste0(chemin_output, "REPRISE/")
+
+> # pour chargement des fonctions en memoire
+> file_sources_reprise = list.files(pattern="*\\.R", path = chemin_fonctions_reprise, full.names = TRUE)
+
+> # nom fichier suivi reprises
+> nom_fichier_reprises_id <- "Suivi_id_reprise.csv"
+        Prod/Fonctions/01-definition_fonction_log.R Prod/Fonctions/02-definition_fonction_searchAPI.R
+value   ?                                           ?                                                
+visible FALSE                                       FALSE                                            
+        Prod/Fonctions/03-definition_fonction_fetchAPI.R Prod/Fonctions/04-definition_fonction_new_fn_niv_1.R
+value   ?                                                ?                                                   
+visible FALSE                                            FALSE                                               
+        Prod/Fonctions/05-definition_fonction_test_id_fetch.R Prod/Fonctions/06-definition_fonction_traitements_xml.R
+value   ?                                                     ?                                                      
+visible FALSE                                                 FALSE                                                  
+        Prod/Fonctions/07-definition_fonction_check_xml.R Prod/Fonctions/08-definition_fonction_traitements_xml_mesh.R
+value   ?                                                 ?                                                           
+visible FALSE                                             FALSE                                                       
+        Prod/Fonctions/09-definition_fonction_full_traitements_xml.R Prod/Fonctions/10-definition_fonction_identification_id_a_charger.R
+value   ?                                                            ?                                                                  
+visible FALSE                                                        FALSE                                                              
+        Prod/Fonctions/11-definition_fonction_test_reprise_necessaire.R Prod/Fonctions/12-definition_lancement_PUBMED.R
+value   ?                                                               ?                                              
+visible FALSE                                                           FALSE                                          
+        Prod/Fonctions/13-definition_not_in.R Prod/Fonctions/14-definition_identification_id_doublons.R
+value   ?                                     ?                                                        
+visible FALSE                                 FALSE                                                    
+        Prod/Fonctions/14-definition_identification_id_plus_present.R Prod/Fonctions/15-definition_fonction_traitements_xml_supp.R
+value   ?                                                             ?                                                           
+visible FALSE                                                         FALSE                                                       
+        Prod/Fonctions/16-definition_fonction_suppression_id_plus_acharger.R
+value   ?                                                                   
+visible FALSE                                                               
+        Prod/Fonctions/17-definition_fonction_suppression_en_doublons.R Prod/Fonctions/18-definition_fonction_comptage_balise.R
+value   ?                                                               ?                                                      
+visible FALSE                                                           FALSE                                                  
+        Prod/Fonctions/19-definition_fonction_split_xml.R
+value   ?                                                
+visible FALSE                                            
+named list()
+Called from: comptage_balise(nom_chemin = chemin_mesh_rds, id = "id_mesh", 
+    nom_output = "cpt_balises_mesh")
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#6 :liste_fic <- list.files(nom_chemin)
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#9 :nb_fic <- length(liste_fic)
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#12 :for (n_fic in 1:nb_fic) {
+    nom_fic <- liste_fic[n_fic]
+    temp <- readRDS(paste0(nom_chemin, nom_fic))
+    cpt <- temp %>% group_by(get(id_fic), Parent, Nom_balise) %>% 
+        summarise(nb = n())
+    cpt2 <- cpt %>% group_by(Parent, Nom_balise) %>% summarise(nb_publi = n(), 
+        nb_tot = sum(nb), min = min(nb), max = max(nb))
+    cpt2$nom_fic <- nom_fic
+    if (n_fic == 1) {
+        res_tot <- cpt2
+    }
+    else {
+        res_tot <- rbind(res_tot, cpt2)
+    }
+}
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#15 :nom_fic <- liste_fic[n_fic]
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#18 :temp <- readRDS(paste0(nom_chemin, nom_fic))
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#21 :cpt <- temp %>% group_by(get(id_fic), Parent, Nom_balise) %>% 
+    summarise(nb = n())
+`summarise()` regrouping output by 'get(id_fic)', 'Parent' (override with `.groups` argument)
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#25 :cpt2 <- cpt %>% group_by(Parent, Nom_balise) %>% summarise(nb_publi = n(), 
+    nb_tot = sum(nb), min = min(nb), max = max(nb))
+`summarise()` regrouping output by 'Parent' (override with `.groups` argument)
+`summarise()` regrouping output by 'get(id_fic)', 'Parent' (override with `.groups` argument)
+`summarise()` regrouping output by 'Parent' (override with `.groups` argument)
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#38 :res_tot_agg <- res_tot %>% group_by(Parent, Nom_balise) %>% summarise(nb_fic = n(), 
+    nb_tot_agg = sum(nb_tot), min = min(min), max = max(max))
+`summarise()` regrouping output by 'Parent' (override with `.groups` argument)
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#44 :nb_element <- max(res_tot_agg[(res_tot_agg$min == 1 & res_tot_agg$max == 
+    1), ]$nb_tot_agg)
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#48 :res_tot_agg$type_balise <- "NA"
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#51 :res_tot_agg[(res_tot_agg$min == 1 & res_tot_agg$max == 1), ]$type_balise <- "simple_chemin"
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#54 :res_tot_agg[(res_tot_agg$min == 1 & res_tot_agg$max == 1) & grepl("Date", 
+    res_tot_agg$Parent), ]$type_balise <- "simple_date"
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#57 :res_tot_agg[(res_tot_agg$min == 1 & res_tot_agg$max == 1) & res_tot_agg$Parent == 
+    "PubDate", ]$type_balise <- "simple_PubDate"
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#61 :res_tot_agg[(res_tot_agg$min == 1 & res_tot_agg$max == 1) & res_tot_agg$nb_tot_agg < 
+    nb_element * tx_balise_NS, ]$type_balise <- "simple_non_significative"
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#65 :res_tot_agg[(res_tot_agg$min == 1 & res_tot_agg$max == 1) & (res_tot_agg$Parent %in% 
+    liste_balises_erronnees | res_tot_agg$Nom_balise %in% liste_balises_erronnees), 
+    ]$type_balise <- "simple_erronnee"
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#71 :res_tot_agg[!(res_tot_agg$min == 1 & res_tot_agg$max == 1), ]$type_balise <- "multiple"
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#73 :res_tot_agg[!(res_tot_agg$min == 1 & res_tot_agg$max == 1) & 
+    (res_tot_agg$Parent %in% liste_balises_erronnees | res_tot_agg$Nom_balise %in% 
+        liste_balises_erronnees), ]$type_balise <- "multiple_erronnee"
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#80 :liste_balise_hist <- read.csv2(paste0(chemin_output, nom_output, 
+    ".csv"))
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#83 :liste_balise_hist <- liste_balise_hist %>% select(Parent, Nom_balise, 
+    type_balise) %>% rename(type_balise_old = type_balise)
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#87 :liste_balise_hist$Nouvelle_valeur <- "NON"
+debug à Prod/Fonctions/18-definition_fonction_comptage_balise.R#90 :res_tot_agg <- res_tot_agg %>% left_join(liste_balise_hist, by = c("Parent", 
+    "Nom_balise"))
+                      Parent              Nom_balise type_balise_old Nouvelle_valeur
+1         AllowableQualifier            Abbreviation        multiple             NON
+2                    Concept               CASN1Name   simple_chemin             NON
+3                    Concept               ConceptUI        multiple             NON
+4                    Concept          RegistryNumber        multiple             NON
+5                    Concept               ScopeNote        multiple             NON
+6                ConceptName                  String        multiple             NON
+7            ConceptRelation              Concept1UI        multiple             NON
+8            ConceptRelation              Concept2UI        multiple             NON
+9                DateCreated                     Day        multiple             NON
+10               DateCreated                   Month        multiple             NON
+11               DateCreated                    Year        multiple             NON
+12           DateEstablished                     Day     simple_date             NON
+13           DateEstablished                   Month     simple_date             NON
+14           DateEstablished                    Year     simple_date             NON
+15               DateRevised                     Day     simple_date             NON
+16               DateRevised                   Month     simple_date             NON
+17               DateRevised                    Year     simple_date             NON
+18            DescriptorName                  String        multiple             NON
+19          DescriptorRecord              Annotation   simple_chemin             NON
+20          DescriptorRecord            ConsiderAlso   simple_chemin             NON
+21          DescriptorRecord            DescriptorUI   simple_chemin             NON
+22          DescriptorRecord             HistoryNote   simple_chemin             NON
+23          DescriptorRecord NLMClassificationNumber   simple_chemin             NON
+24          DescriptorRecord              OnlineNote   simple_chemin             NON
+25          DescriptorRecord          PublicMeSHNote   simple_chemin             NON
+26      DescriptorReferredTo            DescriptorUI        multiple             NON
+27      PreviousIndexingList        PreviousIndexing        multiple             NON
+28             QualifierName                  String        multiple             NON
+29       QualifierReferredTo             QualifierUI        multiple             NON
+30 RelatedRegistryNumberList   RelatedRegistryNumber        multiple             NON
+31                      Term            EntryVersion        multiple             NON
+32                      Term             SortVersion        multiple             NON
+33                      Term                  String        multiple             NON
+34                      Term                  TermUI        multiple             NON
+35           ThesaurusIDlist             ThesaurusID        multiple             NON
+36            TreeNumberList              TreeNumber        multiple             NON
+                      Parent              Nom_balise type_balise_old Nouvelle_valeur
+1         AllowableQualifier            Abbreviation        multiple             NON
+2                    Concept               CASN1Name   simple_chemin             NON
+3                    Concept               ConceptUI        multiple             NON
+4                    Concept          RegistryNumber        multiple             NON
+5                    Concept               ScopeNote        multiple             NON
+6                ConceptName                  String        multiple             NON
+7            ConceptRelation              Concept1UI        multiple             NON
+8            ConceptRelation              Concept2UI        multiple             NON
+9                DateCreated                     Day        multiple             NON
+10               DateCreated                   Month        multiple             NON
+11               DateCreated                    Year        multiple             NON
+12           DateEstablished                     Day     simple_date             NON
+13           DateEstablished                   Month     simple_date             NON
+14           DateEstablished                    Year     simple_date             NON
+15               DateRevised                     Day     simple_date             NON
+16               DateRevised                   Month     simple_date             NON
+17               DateRevised                    Year     simple_date             NON
+18            DescriptorName                  String        multiple             NON
+19          DescriptorRecord              Annotation   simple_chemin             NON
+20          DescriptorRecord            ConsiderAlso   simple_chemin             NON
+21          DescriptorRecord            DescriptorUI   simple_chemin             NON
+22          DescriptorRecord             HistoryNote   simple_chemin             NON
+23          DescriptorRecord NLMClassificationNumber   simple_chemin             NON
+24          DescriptorRecord              OnlineNote   simple_chemin             NON
+25          DescriptorRecord          PublicMeSHNote   simple_chemin             NON
+26      DescriptorReferredTo            DescriptorUI        multiple             NON
+27      PreviousIndexingList        PreviousIndexing        multiple             NON
+28             QualifierName                  String        multiple             NON
+29       QualifierReferredTo             QualifierUI        multiple             NON
+30 RelatedRegistryNumberList   RelatedRegistryNumber        multiple             NON
+31                      Term            EntryVersion        multiple             NON
+32                      Term             SortVersion        multiple             NON
+33                      Term                  String        multiple             NON
+34                      Term                  TermUI        multiple             NON
+35           ThesaurusIDlist             ThesaurusID        multiple             NON
+36            TreeNumberList              TreeNumber        multiple             NON
+                      Parent              Nom_balise type_balise_old Nouvelle_valeur
+1         AllowableQualifier            Abbreviation        multiple             NON
+2                    Concept               CASN1Name   simple_chemin             NON
+3                    Concept               ConceptUI        multiple             NON
+4                    Concept          RegistryNumber        multiple             NON
+5                    Concept               ScopeNote        multiple             NON
+6                ConceptName                  String        multiple             NON
+7            ConceptRelation              Concept1UI        multiple             NON
+8            ConceptRelation              Concept2UI        multiple             NON
+9                DateCreated                     Day        multiple             NON
+10               DateCreated                   Month        multiple             NON
+11               DateCreated                    Year        multiple             NON
+12           DateEstablished                     Day     simple_date             NON
+13           DateEstablished                   Month     simple_date             NON
+14           DateEstablished                    Year     simple_date             NON
+15               DateRevised                     Day     simple_date             NON
+16               DateRevised                   Month     simple_date             NON
+17               DateRevised                    Year     simple_date             NON
+18            DescriptorName                  String        multiple             NON
+19          DescriptorRecord              Annotation   simple_chemin             NON
+20          DescriptorRecord            ConsiderAlso   simple_chemin             NON
+21          DescriptorRecord            DescriptorUI   simple_chemin             NON
+22          DescriptorRecord             HistoryNote   simple_chemin             NON
+23          DescriptorRecord NLMClassificationNumber   simple_chemin             NON
+24          DescriptorRecord              OnlineNote   simple_chemin             NON
+25          DescriptorRecord          PublicMeSHNote   simple_chemin             NON
+26      DescriptorReferredTo            DescriptorUI        multiple             NON
+27      PreviousIndexingList        PreviousIndexing        multiple             NON
+28             QualifierName                  String        multiple             NON
+29       QualifierReferredTo             QualifierUI        multiple             NON
+30 RelatedRegistryNumberList   RelatedRegistryNumber        multiple             NON
+31                      Term            EntryVersion        multiple             NON
+32                      Term             SortVersion        multiple             NON
+33                      Term                  String        multiple             NON
+34                      Term                  TermUI        multiple             NON
+35           ThesaurusIDlist             ThesaurusID        multiple             NON
+36            TreeNumberList              TreeNumber        multiple             NON
